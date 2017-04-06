@@ -63,9 +63,9 @@ bool MyApp::OnInit()
 
    delete cds;
    wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
-   frame = new wxFrame((wxFrame *)NULL, -1,  wxT("AVL Tree"), wxPoint(500,500), wxSize(1100,600));
+   frame = new wxFrame((wxFrame *)NULL, -1,  wxT("BST Tree"), wxPoint(500,500), wxSize(1100,600));
  
-   drawPane = new DrawPanel((wxFrame*) frame, avl);
+   drawPane = new DrawPanel((wxFrame*) frame, bst);
    sizer->Add(drawPane, 1, wxEXPAND);
  
    frame->SetSizer(sizer);
