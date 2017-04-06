@@ -4,13 +4,15 @@
 #include "DrawPanel.h"
 #include "ImageLoader.h"
 
-
+#include "BinarySearchTree.h"
+#include "BinaryTreeIterator.h"
 #include "Circle.h"
 #include "Line.h"
-#include "AVLTree.h"
+//#include "AVLTree.h"
 #include "ListArray.h"
 #include "CD.h"
 using namespace CSC2110;
+using namespace std;
 
 class MyApp: public wxApp
 {
@@ -43,9 +45,15 @@ bool MyApp::OnInit()
    //DO THIS
    //test your tree sort method
    CD** unsorted_cds = cds->toArray();
-   CD** sorted_cds = 
+   CD** sorted_cds = bst -> treeSort(unsorted_cds, num_items, &CD::compare_items, &CD::compare_keys);
 
-
+   for (int n = 0; n < num_items; n++)
+   {
+   	CD* test = sorted_cds[n];
+   	String* key = test -> getKey();
+   	key -> displayString();
+   	cout << endl;
+   }
 
 
 
@@ -65,6 +73,7 @@ bool MyApp::OnInit()
  
    frame->Show();
    return true;
-} 
+ 
    return 0;
 }
+
